@@ -1,15 +1,27 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+public class Main {
+  public static void main(String[] args) {
+    flightMenu();
+  }
+
+  public static void flightMenu() {
+    Scanner kb = new Scanner(System.in);
+    Airport airport = new Airport();
+    System.out.print("> ");
+    String input = kb.nextLine();;
+
+    if (input.contains("takeoff")) {
+      airport.takeoff(input.substring(8));
+    } else if (input.contains("land")) {
+      airport.land(input.substring(5));
+    } else if (input.equals("next")) {
+      airport.next();
+    } else if (input.equals("quit")) {
+      System.exit(0);
     }
+
+    System.out.print("\n");
+    flightMenu();
+  }
 }
