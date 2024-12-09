@@ -14,7 +14,6 @@ public class Airport {
   // Function for menu
   public static void flightMenu() {
     Scanner kb = new Scanner(System.in);
-    Airport airport = new Airport();
     System.out.print("> ");
     String input = kb.nextLine();;
 
